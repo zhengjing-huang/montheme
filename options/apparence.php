@@ -4,14 +4,14 @@ add_action('customize_register',function(WP_Customize_Manager $manager){
        'title'=> 'Personnalisation de l\'apparence',
    ]);
 
-   $manager->add_setting('header_background',[
-    'default'=>'#FF0000',
+    $manager->add_setting('header_background',[
+    'default'=>'#ffffff',
     'transport'=>'postMessage',
     'sanitize_callback'=>'sanitize_hex_color'
    ]);
    $manager->add_control(new WP_Customize_Color_Control($manager,'header_background',[
     'section'=>'montheme_apparence',
-    'label'=>'Couleur de l\'entete',
+    'label'=>'Couleur de l\'entete et pied de page',
    ]));
 });
 

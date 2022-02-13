@@ -12,10 +12,11 @@ function montheme_supports()
     add_theme_support('menus');
     register_nav_menu('header', 'Entete du menu');
     register_nav_menu('footer', 'Pied de page');
-
+    	
+    add_theme_support( 'custom-logo' );
     //register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
     add_image_size('card-header', 350, 215, true);
-
+    montheme_custom_logo_setup();
 
 }
 
@@ -27,12 +28,15 @@ function montheme_resgister_assets()
 
 
     //Register styles
-    wp_register_style('style-css', get_stylesheet_uri(), [], filemtime(get_template_directory() . '/style.css'), 'all'); ///all -> tous types de média
+    wp_register_style('style-css', get_stylesheet_uri(), [], false, 'all'); ///all -> tous types de média
     wp_register_style('bootstrap-css', $bootstrapCssPath, [], false, 'all'); ///all -> tous types de média
 
     //Register scripts
     wp_register_script('main-js', get_template_directory_uri() . '/assets/main.js', [], filemtime(get_template_directory() . '/assets/main.js'), true);
     wp_register_script('bootstrap-js', $bootstrapJsPath, ['jquery'], false, true);
+
+    //Register front page css
+    wp_register_style('front-page-css', get_stylesheet_uri(), [], filemtime(get_template_directory() . '/css/front-page.css'), 'all'); ///all -> tous types de média
 
     //Enqueue styles
     wp_enqueue_style('style-css');
@@ -112,6 +116,11 @@ function montheme_init(){
     ]);
 }
 
+function my_excerpt_length($length){
+    return 80;
+}
+    
+
 add_action('after_setup_theme', 'montheme_supports');
 add_action('wp_enqueue_scripts', 'montheme_resgister_assets');
 add_action( 'init', 'montheme_init' );
@@ -119,8 +128,22 @@ add_action( 'init', 'montheme_init' );
 add_filter('document_title_separartor', 'montheme_title_separartor');
 add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
+add_filter('excerpt_length', 'my_excerpt_length');
 
+function montheme_custom_logo_setup() {
 
+    
+    $defaults = array(
+        'height'               => 100,
+        'width'                => 100,
+        'flex-height'          => true,
+        'flex-width'           => true,
+        'header-text'          => array( 'site-title', 'site-description' ),
+        'unlink-homepage-logo' => true, 
+    );
+ 
+    add_theme_support( 'custom-logo', $defaults );
+}
 
 function wpbootstrap_sidebar() {
     register_sidebar([

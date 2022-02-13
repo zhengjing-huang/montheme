@@ -2,12 +2,12 @@
 
 <?php if (have_posts()) : ?>
 
-    <div class="row">
+    <div class="row" style="margin-top:50px">
 
         <?php while (have_posts()) : the_post(); ?>
             <div class="col-sm-4">
 
-                ceshi
+                
                 <div class="card">
                     <?php the_post_thumbnail('card-header', ['class' => 'card-img-top', 'alt' => 'all of us are dear', 'style' => 'height:auto;']) ?>
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
