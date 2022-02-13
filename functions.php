@@ -2,7 +2,7 @@
 
 require_once('options/apparence.php');
 
-//require_once('wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php');
+require_once('wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php');
 
 
 function montheme_supports()
@@ -93,8 +93,29 @@ function montheme_pagination()
     echo '</nav>';
 }
 
+function montheme_init(){
+    register_taxonomy('sport','post', [
+        'labels'=>[
+            'name'              =>"Sport",
+            'singular_name'     =>"Sport",
+            'plural_name_name'  =>"Sports",
+            'search_items'      =>"Rechercher des sport",
+            'all_items'         =>"Tous les sport",
+            'edit_item'         =>"Editer sport",
+            'update_item'       =>"Mettre à jour sport",
+            'add_new_item'      =>"Ajouter un nouveau sport",
+            'menu_name'         =>"Sport",
+        ],
+        'show_in_rest'          =>true,
+        'hierarchical'          =>true,
+        'show_admin_column'     =>true,
+    ]);
+}
+
 add_action('after_setup_theme', 'montheme_supports');
 add_action('wp_enqueue_scripts', 'montheme_resgister_assets');
+add_action( 'init', 'montheme_init' );
+
 add_filter('document_title_separartor', 'montheme_title_separartor');
 add_filter('nav_menu_css_class', 'montheme_menu_class');
 add_filter('nav_menu_link_attributes', 'montheme_menu_link_class');
@@ -117,15 +138,10 @@ function wpbootstrap_sidebar() {
 add_action('widgets_init', 'wpbootstrap_sidebar');
 
 
-// wp_nav_menu( array(
-//     'menu' => 'top_menu',
-//     'depth' => 2,
-//     'container' => false,
-//     'menu_class' => 'nav',
-//     //Process nav menu using our custom nav walker
-//     'walker' => new wp_bootstrap_navwalker())
-//   );
-
-
 opcache_reset();
+
+require_once('metaboxes/sponso.php');
+
+//SponsoMetaBox::register();
+SponsoMetaBox::register();
 ?>

@@ -13,6 +13,7 @@
   -->
 
   <?php if(have_posts()): ?>
+    test
     <?php while(have_posts()):the_post(); ?>
 
       

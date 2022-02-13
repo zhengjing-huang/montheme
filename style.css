@@ -31,8 +31,42 @@ footer{
 }
 
 .footer-last{
-    
-    
-    
     list-style: none;
+}
+
+#navbarSupportedContent .menu-item{
+    list-style: none;
+    display: flex;
+}
+
+#navbarSupportedContent ul li{
+    display: flex;
+    flex-direction: column;
+}
+
+#navbarSupportedContent ul li ul{
+
+    top:70%;
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+
+#navbarSupportedContent ul li:hover ul{
+    display: block;
+}
+
+#navbarSupportedContent ul li ul li:hover{
+    background-color: #FB7C6F;
 }

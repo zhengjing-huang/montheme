@@ -1,5 +1,13 @@
 <?php get_header(); ?>
 
+<h1>
+    <?php get_queried_object()->name ?>
+</h1>
+
+<p>
+    <?= get_queried_object()->description ?>
+</p>
+
 <?php if (have_posts()) : ?>
 
     <div class="row">
@@ -7,7 +15,7 @@
         <?php while (have_posts()) : the_post(); ?>
             <div class="col-sm-4">
 
-                ceshi
+                sport
                 <div class="card">
                     <?php the_post_thumbnail('card-header', ['class' => 'card-img-top', 'alt' => 'all of us are dear', 'style' => 'height:auto;']) ?>
                     <!-- <img src="..." class="card-img-top" alt="..."> -->

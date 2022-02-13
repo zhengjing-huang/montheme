@@ -7,7 +7,17 @@
         </p>
         <?php the_content() ?>
 
+        <?php if(get_post_meta(get_the_ID(),'montheme_sponso',true) == '1'): ?>
+            <div class="alert alert-info">
+                Cet article est sponsorisé
+            </div>
+        <?php else :?>
+            <div class="alert alert-info">
+                Cet article n'est pas sponsorisé
+            </div>
 
+            
+        <?php endif; ?>
         <!-- pb commentaire obsolete-->
         <?php
     if (comments_open() || get_comments_number()){
