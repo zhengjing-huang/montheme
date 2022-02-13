@@ -4,7 +4,7 @@ require_once('options/apparence.php');
 
 require_once('wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php');
 
-
+//ceshi email
 function montheme_supports()
 {
     add_theme_support('title_tag');
