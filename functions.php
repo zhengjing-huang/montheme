@@ -33,6 +33,8 @@ function montheme_resgister_assets()
 
     //Register scripts
     wp_register_script('main-js', get_template_directory_uri() . '/assets/main.js', [], filemtime(get_template_directory() . '/assets/main.js'), true);
+    // wp_deregister_script('jquery');
+    // wp_register('jquery','https://code.jquery.com/jquery-3.3.1.slim.min.js',[], false, true);
     wp_register_script('bootstrap-js', $bootstrapJsPath, ['jquery'], false, true);
 
     //Register front page css

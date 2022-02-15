@@ -1,4 +1,5 @@
 </div>
+</div>
 <footer>
     <div class="container footer-block">
         <p class="footer"> © 2022 - Tous droits réservés </p>
