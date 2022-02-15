@@ -22,22 +22,22 @@ use function DI\add;
     $my_pages = get_posts($args);
     $list = [];
     foreach ($my_pages as $page){
+      // var_dump($page);
       $args = [
         'post_parent'=>$page->ID,
         'post_type'=>'page',
+        
+        'order' => 'ASC',
+        'orderby'   => 'menu_order',
         'meta_query'=>[
           
             'key'=>"menu_order",
-            'value'=>'0',
+            'value'=>'1',
             'compare'=>">"
           
         ]
       ];
       $subPages = get_posts($args);
-      // if (count($subPages)>0){
-      //   var_dump($subPages);
-      // }
-      // var_dump($subPages);
       $children=[];
       foreach($subPages as $subPage){
 
@@ -47,8 +47,6 @@ use function DI\add;
         ]);
         
       }
-      // var_dump($children);
-      
       $object = [
         "parent"=>[
           "url"=>$page->guid,
@@ -58,9 +56,6 @@ use function DI\add;
       ];
       array_push($list, $object);
     }
-    // die();
-    // var_dump($list);
-    // die();
     return $list;
     
   }
@@ -94,9 +89,9 @@ use function DI\add;
           <?php foreach($list as $i=>$page){ ?>
             
           <li class="nav-item <?= $i==0 ? 'active' : '' ?>" <?= count($page['children']) > 0 ? "dropdown" : "" ?> >
-            
+          
             <a  class="nav-link <?= count($page['children']) > 0 ? "dropdown-toggle" : "" ?>" 
-                href="<?= $page->guid ?>"
+                href="<?= $page['parent']["url"] ?>"
                 data-bs-toggle="<?= count($page['children']) > 0 ? 'collapse':'' ?>"
                 data-bs-target="<?= count($page['children']) > 0 ? '#dropdown-submenu':'' ?>"
                 aria-controls="<?= count($page['children']) > 0 ? '#dropdown-submenu':'' ?>"
@@ -108,7 +103,7 @@ use function DI\add;
             <div class="dropdown-menu" aria-labelledby="dropdown-submenu" id="dropdown-submenu">
               <?php foreach($page['children'] as $j=>$subPage){ ?>
                 
-                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="<?= $subPage['url'] ?>"><?= $subPage["name"] ?></a>
                 
               <?php } ?>
             </div>

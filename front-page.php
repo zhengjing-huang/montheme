@@ -34,7 +34,9 @@ function content($limit) {
 
 
 <main class="container" style="display: flex; gap:30px; flex-direction: column;">
-
+<?php while (have_posts()) : the_post(); ?>
+            <?php the_content(  );?>
+        <?php endwhile; ?>
   <?php
   $film_categories = ["fiction", "comique", "horreur"];
   $serie_categories = ["romantique", "zombie"];
@@ -47,6 +49,7 @@ function content($limit) {
   ];
   $posts_per_page = 4;
   $count = 4;
+  
   foreach ($list as $section) {
   ?>
     <div class="row"
