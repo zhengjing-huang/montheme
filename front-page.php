@@ -41,12 +41,29 @@
                         <?php $categoriesOfPost = get_the_category($post->id) ?>
                         <div class="col-md-3 col-sm-6" style="margin-top: 10px;">
                             <div class="card" style="min-height: 360px;">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $post->post_title ?></h5>
+                                <!-- <img src="<?= get_the_post_thumbnail($post->ID) ?>" class="card-img-top" alt=""> -->
+                                <!-- <div class="view overlay zoom">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).webp" class="img-fluid " alt="smaple image">
+                                    <div class="mask flex-center">
+                                        <p class="white-text">Zoom effect</p>
+                                    </div>
+                                </div> -->
+
+                                <div class="col-xs-6 col-sm-3 hover-fade" style="width: 100%;">
+                                    <a href="#" title="">
+                                        <img src="http://placeimg.com/260/260/nature/2/" alt=""/>
+                                    </a>
+                                    <h4 class="text-center"><?= $post->post_title ?></h4>
+                                </div>
+                                
+                                <div class="card-body" style="padding:0px 15px;">
+                                    
+                                    <!-- <h5 class="card-title"><?= $post->post_title ?></h5> -->
                                     <?php foreach ($categoriesOfPost as $category){ ?>
-                                        <h6 class="card-subtitle mb-2 text-muted">
-                                        <?= $category->name ?>
-                                        </h6>
+                                        <a href="">
+                                            <?= $category->name ?>
+                                        </a>
+                                        
                                     <?php } ?>
 
                                     <p class="card-text" >
@@ -58,6 +75,7 @@
                         </div>
                     <?php } ?>
                 <?php } ?>
+                
             </div>
         <?php } ?>
 
