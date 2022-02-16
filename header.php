@@ -43,7 +43,12 @@ use function DI\add;
       <div class="collapse navbar-collapse" id="navbarSupportedContent" >
 
         <ul class="navbar-nav mr-auto">
-          <?php foreach($list as $i=>$page){ ?>
+            <?php 
+
+            foreach($list as $i=>$page){ 
+                
+                if ($page['parent']['menu_order'] >0){
+            ?>
             
           <li class="nav-item <?= $i==0 ? 'active' : '' ?>" <?= count($page['children']) > 0 ? "dropdown" : "" ?> >
           
@@ -67,7 +72,7 @@ use function DI\add;
             <?php endif; ?>
             
           </li>
-          <?php }?>
+          <?php }}?>
         </ul>
         <div style="margin-left: 20px;">
           <?= get_search_form() ?>
