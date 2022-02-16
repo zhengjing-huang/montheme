@@ -51,7 +51,7 @@
 
                                 <div class="col-xs-6 col-sm-3 hover-fade" style="width: 100%;">
                                     <a href="#" title="">
-                                        <img src="http://placeimg.com/260/260/nature/2/" alt=""/>
+                                        <img src=`<?= get_the_post_thumbnail($post->ID) ?>` alt=""/>
                                     </a>
                                     <h4 class="text-center"><?= $post->post_title ?></h4>
                                 </div>
