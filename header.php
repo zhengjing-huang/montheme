@@ -14,59 +14,15 @@ use function DI\add;
 </head>
 
 <?php 
-  function getLists(){
-    $args = [
-      'post_parent'=>0,
-      'post_type'=>'page',
-    ];
-    $my_pages = get_posts($args);
-    $list = [];
-    foreach ($my_pages as $page){
-      // var_dump($page);
-      $args = [
-        'post_parent'=>$page->ID,
-        'post_type'=>'page',
-        
-        'order' => 'ASC',
-        'orderby'   => 'menu_order',
-        'meta_query'=>[
-          
-            'key'=>"menu_order",
-            'value'=>'1',
-            'compare'=>">"
-          
-        ]
-      ];
-      $subPages = get_posts($args);
-      $children=[];
-      foreach($subPages as $subPage){
-
-        array_push($children, [
-          "name"=>$subPage->post_name,
-          "url"=>$subPage->guid,
-        ]);
-        
-      }
-      $object = [
-        "parent"=>[
-          "url"=>$page->guid,
-          "name"=>$page->post_name
-        ],
-        "children"=>$children,
-      ];
-      array_push($list, $object);
-    }
-    return $list;
-    
-  }
-  $list = getLists();
-  getLists();
+  require_once("utils/get_menu_list.php");  
+  $list = getMenuList();
 ?>
 
 <body>
   
+  
   <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: <?= get_option('footer_background'); ?>!important">
-    <!-- <div class="container-fluid"> -->
+    <div class="container">
       <a class="navbar-brand" href="<?php bloginfo('url') ?>">
         <?php
           $custom_logo_id = get_theme_mod('custom_logo');
@@ -84,7 +40,8 @@ use function DI\add;
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+
         <ul class="navbar-nav mr-auto">
           <?php foreach($list as $i=>$page){ ?>
             
@@ -112,12 +69,15 @@ use function DI\add;
           </li>
           <?php }?>
         </ul>
-
+        <div style="margin-left: 20px;">
+          <?= get_search_form() ?>
+        </div>
+        
       </div>
-    <!-- </div> -->
+    </div>
   </nav>
   
 </body>
-  <?= get_search_form() ?>
+  
   <div class="global_container">
     <div class="container">
