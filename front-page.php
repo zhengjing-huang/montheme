@@ -41,17 +41,11 @@
                         <?php $categoriesOfPost = get_the_category($post->id) ?>
                         <div class="col-md-3 col-sm-6" style="margin-top: 10px;">
                             <div class="card" style="min-height: 360px;">
-                                <!-- <img src="<?= get_the_post_thumbnail($post->ID) ?>" class="card-img-top" alt=""> -->
-                                <!-- <div class="view overlay zoom">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(131).webp" class="img-fluid " alt="smaple image">
-                                    <div class="mask flex-center">
-                                        <p class="white-text">Zoom effect</p>
-                                    </div>
-                                </div> -->
+                                
 
                                 <div class="col-xs-6 col-sm-3 hover-fade" style="width: 100%;">
                                     <a href="#" title="">
-                                        <img src=`<?= get_the_post_thumbnail($post->ID) ?>` alt=""/>
+                                        <?= get_the_post_thumbnail($post->ID) ?>
                                     </a>
                                     <h4 class="text-center"><?= $post->post_title ?></h4>
                                 </div>
