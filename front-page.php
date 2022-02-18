@@ -28,15 +28,18 @@
                     <h3><?= $section['parent']['name'] ?></h3>
                     <a href="page.php">Voir plus</a>
                 </div>
-
+                
                 <?php
+                
                 foreach ($section['children'] as $category) {
+                    var_dump($category);
                     $args = [
                       'category'=>$category->ID,
                       'post_type'=>'post'
                     ];
                     $posts = get_posts($args);
                 ?>
+                    <!-- <?= var_dump($category) ?> -->
                     <?php foreach($posts as $post){ ?>
                         <?php $categoriesOfPost = get_the_category($post->id) ?>
                         <div class="col-md-3 col-sm-6" style="margin-top: 10px;">

@@ -28,6 +28,7 @@ function getMenuList(){
           array_push($children, [
             "name"=>ucfirst($subPage->post_name),
             "url"=>$subPage->guid,
+            "ID"=>$subPage->ID,
           ]);
           
         }
