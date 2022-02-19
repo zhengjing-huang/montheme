@@ -11,10 +11,14 @@
 
 <main>
     <?php 
-        while (have_posts()){
-            the_post();
-            the_content();
-        }
+        $args = [
+            'menu_order'=>1,
+            'post_type'=>'page',
+        ];
+        $front_page = get_posts($args)[0];
+        echo do_shortcode(get_post_field('post_content', $front_page->ID));
+
+        
     ?>
 
     <?php 
