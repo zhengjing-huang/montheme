@@ -84,9 +84,12 @@
                                             </div>
 
                                             <div class="play">
+                                                
+                                                <a href="<?= $post->guid ?>" title="" style="background-color:transparent;">
                                                 <img src="https://img.icons8.com/fluency/48/000000/play-button-circled.png"
                                                     style="width:45px;z-index:999;"
                                                 />
+                                                </a>
                                                 
                                             </div>
                                         <?php endif; ?>
@@ -94,14 +97,14 @@
                                                 style="width: 100%;border-radius:5px;overflow: hidden; "
                                                 
                                         >
-                                            <a href="#" title="">
+                                            <a href="<?= $post->guid ?>" title="">
                                                 <?= get_the_post_thumbnail($post->ID) ?>
                                             </a>
                                         </div>
                                     </div>
 
                                     <div style="display:flex;flex-direction:column;margin:8px 0px;">
-                                        <a href="" style="background-color:transparent; text-decoration:none;">
+                                        <a href="<?= $post->guid ?>" style="background-color:transparent; text-decoration:none;">
                                             <h5><?= $post->post_title ?></h5>
                                         </a>
                                         

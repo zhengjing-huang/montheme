@@ -1,4 +1,5 @@
 <?php
+global $wp;
 get_header();
 ?>
 
@@ -11,13 +12,13 @@ $posts_per_page = 4;
 $args = [
     'post_parent'=>getPageId(),
     'post_type'=>'page',
-  ];
+];
+
 $categories = get_posts($args);
 
+get_category_link('films');
+$i = -1;
 
-// $list = getMenuList();
-
-// var_dump(getPageName());
 
 ?>
 
@@ -30,8 +31,20 @@ $categories = get_posts($args);
         />
         <div style="display:flex;overflow-x:scroll;gap:15px;">
 
-            <?php foreach($categories as $category){  ?>
-                <a href="" style="text-decoration:none;">
+            
+            <?php foreach($categories as $j=>$category){  ?>
+
+                <!-- get url from post id -->
+                <?php 
+                $args = [
+                    'post_type' => 'post',
+                    'post_status'=>'publish',
+                    'category_name'=>$category->post_name,
+                ];
+                $posts = (new WP_Query( $args ))->posts;
+                $cat = wp_get_post_categories($posts[0]->ID)[0]; 
+                ?>
+                <a href="<?= home_url( $wp->request ) ?>/?cat=<?= $cat ?>" style="text-decoration:none;">
                     <?= $category->post_title ?>
                 </a>
             <?php } ?>
@@ -45,13 +58,16 @@ $categories = get_posts($args);
         <?php foreach($categories as $category){  ?>
             <!-- section titre + voir plus -->
             <?php
-                $term = get_terms([
-                    "name"=>$category->post_title,
-                ])[0];
+
                 $args = [
-                    'term' => $term->term_id
+                    'post_type' => 'post',
+                    'post_status'=>'publish',
+                    'category_name'=>$category->post_title,
                 ];
-                $posts = get_posts($args);
+                $posts = (new WP_Query( $args ))->posts;
+
+                $cat = wp_get_post_categories($posts[0]->ID)[0]; 
+
             ?>
             <div style="display:flex;justify-content:space-between;">
                 <h5>
@@ -59,7 +75,7 @@ $categories = get_posts($args);
                 </h5>
 
                 <div style="display:flex;flex-direction:column;justify-content:center;">
-                    <a href="<?= $category->guid ?>" style="text-decoration:none;">Voir plus</a>
+                    <a href="<?= home_url( $wp->request ) ?>/?cat=<?= $cat ?>" style="text-decoration:none;">Voir plus</a>
                 </div>
             </div>
 
@@ -93,10 +109,11 @@ $categories = get_posts($args);
                                         </div>
 
                                         <div class="play">
-                                            <img src="https://img.icons8.com/fluency/48/000000/play-button-circled.png"
-                                                style="width:45px;z-index:999;"
-                                            />
-                                                
+                                            <a href="<?= $post->guid ?>" title="" style="background-color:transparent;">
+                                                <img src="https://img.icons8.com/fluency/48/000000/play-button-circled.png"
+                                                    style="width:45px;z-index:999;"
+                                                />
+                                            </a>
                                         </div>
                                     <?php endif ?>
 
@@ -107,7 +124,7 @@ $categories = get_posts($args);
                                                     style="width: 100%;border-radius:5px;overflow: hidden; "
                                                         
                                             >
-                                                <a href="#" title="">
+                                                <a href="<?= $post->guid ?>" title="">
                                                     <?= get_the_post_thumbnail($post->ID) ?>
                                                 </a>
                                             </div>
@@ -115,7 +132,7 @@ $categories = get_posts($args);
                                         
 
                                         <div style="display:flex;flex-direction:column;margin:8px 0px;">
-                                            <a href="" style="background-color:transparent; text-decoration:none;">
+                                            <a href="<?= $post->guid ?>" style="background-color:transparent; text-decoration:none;cursor:pointer;">
                                                 <h5><?= $post->post_title ?></h5>
                                             </a>
                                             

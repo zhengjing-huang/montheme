@@ -13,4 +13,15 @@ function getSectionIcon($name){
     return $list[$name];
 }
 
+
+function getPostsFromCateName($post_name){
+    $args = [
+        'post_type' => 'post',
+        'post_status'=>'publish',
+        'category_name'=>$post_name,
+    ];
+    $posts = (new WP_Query( $args ))->posts;
+    return $posts;
+}
+
 ?>
