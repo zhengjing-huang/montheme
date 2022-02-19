@@ -3,7 +3,8 @@ get_header();
 global $post;
 ?>
 
-
+    
+    
     <div class="row" style="margin-top:50px; display:none;">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <h1><?php the_title() ?></h1>
@@ -71,10 +72,6 @@ global $post;
                         <span style="">★</span>
                     </div>
                     
-                    <!-- <div style="display:flex;margin-top:35px;color:black;flex-direction:column;">
-                        <span> Année: 2022 | Lieu: Corée | Catégorie: Action </span>
-                        <span>张蓝心 邱意浓 曾江 淳于珊珊 石修 郑罗茜 </span>
-                    </div> -->
                     <div style="display:flex;gap:10px">
                         <div style="display:flex;margin-top:35px;color:black;flex-direction:column;">
                             <span> Année:</span>
@@ -105,7 +102,13 @@ global $post;
                                     
             </div>
         </div>
-        
+        <!-- section bas -->
+        <!-- <div style="display:flex;flex-direction:">
+            <h4>Présentation</h4>
+            <p>
+                唐门凭秘宝洞天仪洞察天机,提前预知恶人名录,并在其作恶之前诛杀,护卫天下太平。可唐门掌门唐无烟之名，竟也出现于洞天仪之上，唐无烟被迫逃走，遇到善良小贼楚晨和小米辣师徒，在其帮助下，重返唐门，打破预言，重掌自己的命运。
+            </p>
+        </div> -->
     </div>
     
 

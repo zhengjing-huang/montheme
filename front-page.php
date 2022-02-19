@@ -97,7 +97,7 @@
                                                 style="width: 100%;border-radius:5px;overflow: hidden; "
                                                 
                                         >
-                                            <a href="<?= $post->guid ?>" title="">
+                                            <a href="<?= $post->guid ?>" title="" >
                                                 <?= get_the_post_thumbnail($post->ID) ?>
                                             </a>
                                         </div>
