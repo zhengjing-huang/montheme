@@ -2,7 +2,7 @@
 
 register_taxonomy('sport','post', [
     'labels'=>[
-        'name'              =>"Sport",
+        'name'              =>"Aut",
         'singular_name'     =>"Sport",
         'plural_name_name'  =>"Sports",
         'search_items'      =>"Rechercher des sport",
@@ -13,7 +13,7 @@ register_taxonomy('sport','post', [
         'menu_name'         =>"Sport",
     ],
     'show_in_rest'          =>true,
-    'hierarchical'          =>true,
+    //'hierarchical'          =>true,
     'show_admin_column'     =>true,
 ]);
 

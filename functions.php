@@ -9,6 +9,7 @@ require_once('utils/init.php');
 require_once('utils/add_filter.php');
 require_once('utils/custom_logo_setup.php');
 require_once('metaboxes/sponso.php');
+require_once("utils/util.php");
 
 SponsoMetaBox::register();
 ?>

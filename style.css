@@ -47,13 +47,18 @@ footer{
     width:100%;
 }
 
+.hover-fade{
+    border-radius: 10px;
+    /* cursor: pointer; */
+}
+
 .hover-fade a {
     display: block;
     position: relative;
     overflow: hidden;
     background-color: #333;
-  }
-  .hover-fade img {
+}
+.hover-fade img {
     width: 100%;
     height: auto;
     -webkit-transition: all 0.5s ease-in-out;
@@ -61,19 +66,58 @@ footer{
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
-  }
-  .hover-fade:hover img {
+    cursor: pointer;
+}
+.hover-fade:hover img {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -o-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
-    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.5)";
-    filter: alpha(opacity=0.5);
+    /* -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0.5)"; */
+    /* filter: alpha(opacity=0.5); */
     opacity: 0.5;
-  }
+    cursor: pointer;
+}
+
+/* --------------------------------- Nav Menu ---------------------------------------------- */
+nav{
+    position: fixed;
+}
 
 
-  
 
+/* --------------------------------- Card ---------------------------------------------- */
+.myCard{
+    transition-duration:1s;
+}
 
+.myCard:hover{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+/* --------------------------------- play ---------------------------------------------- */ 
+
+.play{
+    display: flex;
+    
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    opacity: 0;
+    /* background-color: pink; */
+}
+
+/* .play img{
+
+} */
+
+.play:hover{
+
+    /* background-color: green; */
+    opacity: 1;
+    z-index: 888;
+}

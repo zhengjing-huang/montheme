@@ -24,7 +24,6 @@ function getMenuList(){
         $subPages = get_posts($args);
         $children=[];
         foreach($subPages as $subPage){
-
           array_push($children, [
             "name"=>$subPage->post_name,
             "url"=>$subPage->guid,
@@ -34,7 +33,7 @@ function getMenuList(){
         }
         $object = [
           "parent"=>[
-            "url"=>$page->guid,
+            "url"=>$page->menu_order == 1 ? "/" : $page->guid,
             "name"=>$page->post_name,
             "menu_order"=>$page->menu_order,
             "ID"=>$page->ID,
