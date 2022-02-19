@@ -55,17 +55,17 @@ use function DI\add;
             <a  class="nav-link <?= count($page['children']) > 0 ? "dropdown-toggle" : "" ?>" 
                 href="<?= $page['parent']["url"] ?>"
                 data-bs-toggle="<?= count($page['children']) > 0 ? 'collapse':'' ?>"
-                data-bs-target="<?= count($page['children']) > 0 ? '#dropdown-submenu':'' ?>"
+                data-bs-target="<?= count($page['children']) > 0 ? '#dropdown-submenu'.$i:'' ?>"
                 aria-controls="<?= count($page['children']) > 0 ? '#dropdown-submenu':'' ?>"
             >
-              <?= $page['parent']['name'] ?> 
+              <?= ucfirst($page['parent']['name']) ?> 
             </a>
             
             <?php if (count($page['children']) > 0) : ?>
-            <div class="dropdown-menu" aria-labelledby="dropdown-submenu" id="dropdown-submenu">
+            <div class="dropdown-menu" aria-labelledby="<?= 'dropdown-submenu'.$i?>" id="<?= 'dropdown-submenu'.$i ?>">
               <?php foreach($page['children'] as $j=>$subPage){ ?>
                 
-                  <a class="dropdown-item" href="<?= $subPage['url'] ?>"><?= $subPage["name"] ?></a>
+                  <a class="dropdown-item" href="<?= $subPage['url'] ?>"><?= ucfirst($subPage["name"]) ?></a>
                 
               <?php } ?>
             </div>

@@ -25,21 +25,30 @@
                 style="margin:20px 0;"
             >
                 <div style="display: flex; justify-content: space-between;">
-                    <h3><?= $section['parent']['name'] ?></h3>
+                    <h3><?= ucfirst($section['parent']['name']) ?></h3>
                     <a href="page.php">Voir plus</a>
                 </div>
                 
                 <?php
-                
                 foreach ($section['children'] as $category) {
-                    var_dump($category);
+                    
                     $args = [
-                      'category'=>$category->ID,
+                      'category'=>$category['ID'],
                       'post_type'=>'post'
                     ];
                     $posts = get_posts($args);
                 ?>
-                    <!-- <?= var_dump($category) ?> -->
+                    <?php
+                    //$paged
+                    $args = [
+                        'post_type' => 'post',
+                        'post_status'=>'publish',
+                        'category_name'=>$category['name'],
+                    ];
+                    $posts = (new WP_Query( $args ))->posts;
+                    ?>
+                    
+                    
                     <?php foreach($posts as $post){ ?>
                         <?php $categoriesOfPost = get_the_category($post->id) ?>
                         <div class="col-md-3 col-sm-6" style="margin-top: 10px;">
@@ -55,7 +64,6 @@
                                 
                                 <div class="card-body" style="padding:0px 15px;">
                                     
-                                    <!-- <h5 class="card-title"><?= $post->post_title ?></h5> -->
                                     <?php foreach ($categoriesOfPost as $category){ ?>
                                         <a href="">
                                             <?= $category->name ?>
@@ -66,11 +74,13 @@
                                     <p class="card-text" >
                                         <?= substr($post->post_content, 0, 100) ?>
                                     </p>
-                                    <!-- <a href="<?= $post->guid ?>" class="card-link">Lire la suite</a> -->
+
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
+                    
+                    
                 <?php } ?>
                 
             </div>
