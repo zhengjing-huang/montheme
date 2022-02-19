@@ -17,6 +17,6 @@ register_taxonomy('sport','post', [
     'show_admin_column'     =>true,
 ]);
 
-add_action( 'init', 'montheme_init' );
+//add_action( 'init', 'montheme_init' );
 
 ?>
