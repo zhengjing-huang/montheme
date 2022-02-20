@@ -1,7 +1,7 @@
 <?php
 opcache_reset();
 require_once('options/apparence.php');
-require_once('wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php');
+//require_once('wp-bootstrap-navwalker/class-wp-bootstrap-navwalker.php');
 require_once("utils/pagination.php");
 require_once("utils/after_setup_theme.php");
 require_once("utils/wp_enqueue_scripts.php");

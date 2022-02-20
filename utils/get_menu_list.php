@@ -33,7 +33,7 @@ function getMenuList(){
         }
         $object = [
           "parent"=>[
-            "url"=>$page->menu_order == 1 ? "/" : $page->guid,
+            "url"=>$page->menu_order == 1 ? "/wordpress" : $page->guid,
             "name"=>$page->post_name,
             "menu_order"=>$page->menu_order,
             "ID"=>$page->ID,
