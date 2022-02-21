@@ -1,3 +1,3 @@
 <?php
-    taxonomy
+    echo 'Acteurs';
 ?>

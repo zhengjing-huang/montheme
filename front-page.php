@@ -109,7 +109,7 @@
                                         </a>
                                         
                                         <div style="display:flex;gap:5px; font-size:13px;color:rgba(197,197,197)">
-                                            <span>
+                                            <!-- <span>
                                                 黄轩
                                             </span>
                                             <span>
@@ -120,7 +120,9 @@
                                             </span>
                                             <span>
                                                 宋轶
-                                            </span>
+                                            </span> -->
+                                            <?php the_terms(get_the_ID(), 'acteur')
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

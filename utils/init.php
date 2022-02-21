@@ -1,19 +1,19 @@
 <?php 
 
-register_taxonomy('sport','post', [
+register_taxonomy('acteur','post', [
     'labels'=>[
-        'name'              =>"Aut",
+        'name'              =>"Acteurs",
         'singular_name'     =>"Sport",
         'plural_name_name'  =>"Sports",
-        'search_items'      =>"Rechercher des sport",
-        'all_items'         =>"Tous les sport",
-        'edit_item'         =>"Editer sport",
-        'update_item'       =>"Mettre à jour sport",
-        'add_new_item'      =>"Ajouter un nouveau sport",
-        'menu_name'         =>"Sport",
+        'search_items'      =>"Rechercher un acteur",
+        'all_items'         =>"Tous les acteurs",
+        'edit_item'         =>"Editer acteur",
+        'update_item'       =>"Mettre à jour acteur",
+        'add_new_item'      =>"Ajouter un nouvel acteur",
+        'menu_name'         =>"Acteur",
     ],
     'show_in_rest'          =>true,
-    //'hierarchical'          =>true,
+    'hierarchical'          =>true,
     'show_admin_column'     =>true,
 ]);
 

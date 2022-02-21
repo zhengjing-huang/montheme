@@ -64,7 +64,7 @@ global $post;
                 <div style="flex-direction:column;color:white; margin-top:15px;">
                     <h4><?= $post->post_title ?></h4>
                     <div>
-                        <span style="color:rgba(240,80,33)">6.0</span>
+                        <span style="color:rgba(259,159,55)">6.0</span>
                         <span style="color:rgba(259,159,55); margin-left:15px;">★</span>
                         <span style="color:rgba(259,159,55)">★</span>
                         <span style="color:rgba(259,159,55)">★</span>
@@ -74,14 +74,18 @@ global $post;
                     
                     <div style="display:flex;gap:10px">
                         <div style="display:flex;margin-top:35px;color:black;flex-direction:column;">
-                            <span> Année:</span>
-                            <span>Acteurs:</span>
-                            <span>Résumé:</span>
+                            
+                            
+                            
                         </div>
                         <div style="display:flex;margin-top:35px;color:black;flex-direction:column;">
-                            <span> 2022 | Lieu: Corée | Catégorie: Action </span>
-                            <span>张蓝心 邱意浓 曾江 淳于珊珊 石修 郑罗茜 </span>
-                            <span>任达华、吴镇宇、张蓝心等主演院线新片《爷们》今天在云南西双版纳正式开机！吴镇宇同时担任本片艺术总监，邱意浓、曾</span>
+                        <?php 
+                        $categoriesOfPost = get_the_category($post->ID)[0];
+                        ?>
+                            <span> Année: 2022 | Lieu: Corée | Catégorie: <?= $categoriesOfPost->name ?> </span>
+                            <span>Acteurs: <?php the_terms(get_the_ID(), 'acteur')?></span>  
+
+                          
                         </div>
                     </div>
                     
@@ -98,17 +102,19 @@ global $post;
                         </button>
                     </div>
                     
+                   
                 </div>
                                     
             </div>
         </div>
         <!-- section bas -->
-        <!-- <div style="display:flex;flex-direction:">
-            <h4>Présentation</h4>
+        <!-- <div>
+            <h4>Synopsis:</h4>
             <p>
-                唐门凭秘宝洞天仪洞察天机,提前预知恶人名录,并在其作恶之前诛杀,护卫天下太平。可唐门掌门唐无烟之名，竟也出现于洞天仪之上，唐无烟被迫逃走，遇到善良小贼楚晨和小米辣师徒，在其帮助下，重返唐门，打破预言，重掌自己的命运。
+                 <?php the_content(); ?>
             </p>
-        </div> -->
+        </div>  -->
+       
     </div>
     
 

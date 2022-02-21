@@ -7,7 +7,7 @@ $posts_per_page = 4;
 
 $category = get_queried_object();
 
-$posts = getPostsFromCateName($category->name);
+// $posts = getPostsFromCateName($category->name);
 
 ?>
 
@@ -59,18 +59,8 @@ $posts = getPostsFromCateName($category->name);
                                         </a>
                                         
                                         <div style="display:flex;gap:5px; font-size:13px;color:rgba(197,197,197)">
-                                            <span>
-                                                黄轩
-                                            </span>
-                                            <span>
-                                                王一博
-                                            </span>
-                                            <span>
-                                                宋茜
-                                            </span>
-                                            <span>
-                                                宋轶
-                                            </span>
+                                        <?php the_terms(get_the_ID(), 'acteur')
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
