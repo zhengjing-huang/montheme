@@ -76,7 +76,7 @@
                                         ?>
                                             <div style="display:flex;position:absolute;gap:10px;z-index: 99;margin:10px;">
                                                 <span style="color:white; font-size:11px; background-color:rgba(0,139,249);padding:1px 4px;border-radius:3px;">
-                                                    2015
+                                                <?php echo strip_tags(get_the_term_list($post->ID, 'annee')); ?>
                                                 </span>    
                                                 <span style="color:white; font-size:11px; background-color:rgba(255,171,41);padding:1px 4px;border-radius:3px;">
                                                     <?= $categoriesOfPost->name ?>
@@ -109,18 +109,7 @@
                                         </a>
                                         
                                         <div style="display:flex;gap:5px; font-size:13px;color:rgba(197,197,197)">
-                                            <!-- <span>
-                                                黄轩
-                                            </span>
-                                            <span>
-                                                王一博
-                                            </span>
-                                            <span>
-                                                宋茜
-                                            </span>
-                                            <span>
-                                                宋轶
-                                            </span> -->
+                                            
                                             <?php the_terms(get_the_ID(), 'acteur')
                                             ?>
                                         </div>

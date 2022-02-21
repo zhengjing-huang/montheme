@@ -1,3 +1,3 @@
 <?php
-    echo 'Acteurs';
+    echo 'Résultats trouvé par acteur';
 ?>

@@ -82,7 +82,7 @@ global $post;
                         <?php 
                         $categoriesOfPost = get_the_category($post->ID)[0];
                         ?>
-                            <span> Année: 2022 | Lieu: Corée | Catégorie: <?= $categoriesOfPost->name ?> </span>
+                            <span> Année: <?php echo strip_tags(get_the_term_list($post->ID, 'annee')); ?> | Catégorie: <?= $categoriesOfPost->name ?> </span>
                             <span>Acteurs: <?php the_terms(get_the_ID(), 'acteur')?></span>  
 
                           
