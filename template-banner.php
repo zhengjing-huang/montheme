@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Page avec bannière
+ * Template Name: Page de webtoon
  * Template Post Type:page, post
  */
 ?>
