@@ -90,7 +90,7 @@ global $post;
                         <?php 
                         $categoriesOfPost = get_the_category($post->ID)[0];
                         ?>
-                            <span>Catégorie: <?= $categoriesOfPost->name ?> </span>
+                            <span> Année: <?php echo strip_tags(get_the_term_list($post->ID, 'annee')); ?> | Catégorie: <?= $categoriesOfPost->name ?> </span>
                            
                           
                         </div>
@@ -104,19 +104,24 @@ global $post;
                             </span> 
                         </button>
                     </div>
-                    
+                    <div style="color:black;">
+                    <h4>Synopsis:</h4>
+                    <p>
+                        <?php the_content(); ?>
+                    </p>
+                </div> 
                    
                 </div>
                                     
             </div>
         </div>
         <!-- section bas -->
-        <div>
+        <!-- <div style="margin-right:100px;">
             <h4>Synopsis:</h4>
             <p>
                  <?php the_content(); ?>
             </p>
-        </div>  
+        </div>   -->
        
     </div>
     
